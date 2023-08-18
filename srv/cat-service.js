@@ -17,6 +17,7 @@ module.exports = (srv) => {
         if(affectedRows === 0) req.error(409, "Sold out, sorry")
     })
 
+    //Do the changes after 
     srv.after('READ', 'Books', each => {
         if (each.stock > 111) each.title += ' -- 11% discount!'
     })
